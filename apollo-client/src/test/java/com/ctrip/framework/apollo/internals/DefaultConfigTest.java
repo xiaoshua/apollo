@@ -60,7 +60,6 @@ public class DefaultConfigTest {
 
   @Before
   public void setUp() throws Exception {
-    MockInjector.reset();
     MockInjector.setInstance(ConfigUtil.class, new MockConfigUtil());
 
     propertiesFactory = mock(PropertiesFactory.class);
@@ -80,6 +79,7 @@ public class DefaultConfigTest {
 
   @After
   public void tearDown() throws Exception {
+    MockInjector.reset();
     recursiveDelete(someResourceDir);
   }
 
@@ -286,9 +286,9 @@ public class DefaultConfigTest {
     String someStringValue = "someStringValue";
 
     String someKey = "someKey";
-    Long someValue = 2l;
+    Long someValue = 2L;
 
-    Long someDefaultValue = -1l;
+    Long someDefaultValue = -1L;
 
     //set up config repo
     someProperties = new Properties();
